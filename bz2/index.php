@@ -39,9 +39,9 @@
 				<a class="blo" href="?do=que">問卷調查</a>
 			</div>
 			<div class="hal" id="main">
-				<div style="display:flex"> <!--此div下方建marquee, 這層display:flex 讓跑馬燈/會員登入兩區塊並排-->
-					<marquee style="width:80%">請民眾踴躍投稿電子報，讓電子報成為大家互相交流，分享的園地！詳見最新文章。</marquee> <!--新增&設定寬度-->
-					<span style="width:18%; display:inline-block;">
+				<div> <!--此div下方建marquee, 這層display:flex 讓跑馬燈/會員登入兩區塊並排-->
+					<marquee style="width:80%;display:inline-block">請民眾踴躍投稿電子報，讓電子報成為大家互相交流，分享的園地！詳見最新文章。</marquee> <!--新增&設定寬度-->
+					<span style="width:16%; display:inline-block;">
 						<a href="?do=login">會員登入</a>
 					</span>
 					<div class=""> <!--這邊是內容區 include file-->
