@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>健康促進網</title>
+	<title>健康促進網(乙級練習)</title>
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-1.9.1.min.js"></script>
 	<script src="./js/js.js"></script>
@@ -19,13 +19,13 @@
 	<!-- <iframe name="back" style="display:none;"></iframe> -->
 	<!-- 使用ajax取代iframe -->
 	<div id="all">
-		<div id="title">
-			<?= date("m 月 d 號 l"); ?> |
-			今日瀏覽:<?= $Total->find(['date' => date("Y-m-d")])['total']; ?> | <!--尋找與今天日期一致的那筆資料-->
-			累積瀏覽:<?= $Total->sum('total'); ?> <!--使用sum來計算累計-->
+		<div id="title"> <!--是在id=title增加回頁首a tag-->
+			<?=date("m 月 d 號 l");?> | 
+			今日瀏覽:<?=$Total->find(['date'=>date("Y-m-d")])['total'];?> | <!--尋找與今天日期一致的那筆資料-->
+			 累積瀏覽:<?=$Total->sum('total');?> <!--使用sum來計算累計-->
 			<a href="index.php" style="float:right">回頁首</a>
 		</div>
-		<div id="title2">
+		<div id="title2"> <!--這邊id=title2加入banner跟替代文字alt->title-->
 			<a href="index.php">
 				<img src="./icon/02B01.jpg" title="健康促進網-回首頁">
 			</a>
@@ -39,10 +39,26 @@
 				<a class="blo" href="?do=que">問卷調查</a>
 			</div>
 			<div class="hal" id="main">
-				<div>
-				<marquee style="width:80%;display:inline-block">請民眾踴躍投稿電子報，讓電子報成為大家互相交流，分享的園地！詳見最新文章。</marquee> <!--新增&設定寬度-->
+				<div> <!--此div下方建marquee, 這層display:flex 讓跑馬燈/會員登入兩區塊並排-->
+					<marquee style="width:80%;display:inline-block">請民眾踴躍投稿電子報，讓電子報成為大家互相交流，分享的園地！詳見最新文章。</marquee> <!--新增&設定寬度-->
 					<span style="width:16%; display:inline-block;">
-						<a href="?do=login">會員登入</a>
+					<?php
+					if(!isset($_SESSION['user'])){
+						?>
+					<a href="?do=login">會員登入</a>
+					<?php
+					}else{
+					?>
+						歡迎,<?=$_SESSION['user'];?>
+						<button onclick="location.href='./api/logout.php'">登出</button>
+					<?php
+					if($_SESSION['user']=='admin'){
+						?>
+						<button onclick="location.href='back.php'">管理</button>
+					<?php
+					}
+					}
+					?>
 					</span>
 					<div class=""> <!--這邊是內容區 include file-->
 						<?php
