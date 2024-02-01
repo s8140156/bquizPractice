@@ -10,12 +10,12 @@
 		margin-left: -1px;
 		border-radius: 5px 5px 0 0;
 		text-align: center;
-		background-color: #ccc;
+		background-color: #ccc; /*先灰底*/
 		cursor: pointer;
 	}
 	article section{
 		border: 1px solid black;
-		border-radius: 0 5px 5px 5px; /*設定三邊圓姣好了*/
+		border-radius: 0 5px 5px 5px; /*設定三邊圓角好了*/
 		min-height: 480px;
 		margin-top: -1px;
 		display: none; /*先隱藏全部文章*/
