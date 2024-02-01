@@ -20,6 +20,7 @@ function good(id,type,user)
 	})
 }
 
+//for共用 拉到外部include
 function clean(){
 	$("input[type='text'],input[type='password'],input[type='radio'],input[type='number']").val("");
 }
