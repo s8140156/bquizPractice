@@ -10,12 +10,29 @@
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-1.9.1.min.js"></script>
 	<script src="./js/js.js"></script>
+	<style>
+		.pop{ /*複製body下方有個彈出視窗的style 這是for front/pop.php彈出視窗樣式使用 原彈出視窗html註解不使用*/
+			background:rgba(51,51,51,0.8); 
+			color:#FFF; 
+			min-height:300px; /*有些100>300*/ 
+			width:300px; 
+			position:absolute; /*改absolute*/
+			display:none; 
+			z-index:9999; 
+			overflow:auto;
+			/*以下是新增*/
+			padding:10px;
+			border-radius: 10px;
+			box-shadow: 2px 2px 10px #999;
+		}
+	</style>
 </head>
 
 <body>
-	<div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
+	<!-- <div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
 		<pre id="ssaa"></pre>
-	</div>
+	</div> -->
+	<!-- 改用ajax 所以這段要取消 -->
 	<!-- <iframe name="back" style="display:none;"></iframe> -->
 	<!-- 使用ajax取代iframe -->
 	<div id="all">
