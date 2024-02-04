@@ -22,7 +22,7 @@
                 <?=$row['title'];?>
             </div>
         </td>
-            <td style="position:relative">
+            <td style='position:relative'>
                 <div>
                     <?=mb_substr($row['text'],0,25);?>...
                 </div>
@@ -67,11 +67,11 @@
     </div>
 </fieldset>
 <script>
-    $('.title').hover(
+    $(".title").hover(
         function(){
-            $('.pop').hide()
-            let id=$(this).data('id')
-            $('#ip'+id).show()
+            $(".pop").hide()
+            let id=$(this).data("id")
+            $('#p'+id).show();
         }
     )
 

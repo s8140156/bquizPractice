@@ -22,8 +22,6 @@
 			overflow:auto;
 			/*以下是新增*/
 			padding:10px;
-			border-radius: 10px;
-			box-shadow: 2px 2px 10px #999;
 		}
 	</style>
 </head>
