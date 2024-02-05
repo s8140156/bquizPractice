@@ -55,9 +55,15 @@
     </div>
 </fieldset>
 <script>
-    $('.title').on('click',(e)=>{
-        let id=$(e.target).data('id');
+    // $('.title').on('click',(e)=>{
+    //     let id=$(e.target).data('id');
+    //     $(`#s${id},#a${id}`).toggle();
+    // }) //跟以下一樣
+
+    $('.title').on('click',function(){
+        let id=$(this).data('id');
         $(`#s${id},#a${id}`).toggle();
     })
+    //如果要寫$(this) 寫法不能寫箭頭函式 要改寫成function(){}, 裡面有沒有e無差
 
 </script>
