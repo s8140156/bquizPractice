@@ -38,8 +38,8 @@
 			</div>
 			<div class="hal" id="main">
 				<div>
-
-					<span style="width:18%; display:inline-block;">
+					<marquee style="width:80%;display:inline-block">請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！</marquee>
+					<span style="width:16%; display:inline-block;">
 						<a href="?do=login">會員登入</a>
 					</span>
 					<div class="">
