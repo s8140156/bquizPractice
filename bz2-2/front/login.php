@@ -12,7 +12,7 @@
         <tr>
             <td>
                 <input type="button" value="登入" onclick="login()">
-                <input type="reset" value="清除" onclick="clean()">
+                <input type="button" value="清除" onclick="clean()">
             </td>
             <td>
                 <a href="?do=forget">忘記密碼</a> |

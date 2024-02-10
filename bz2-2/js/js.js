@@ -20,5 +20,5 @@ function good(id,type,user)
 	})
 }
 function clean(){
-	$("input[type='text'],input[type='password']").val("");
+	$("input[type='text'],input[type='password'],input[type='number'],input[type='radio']").val("");
 }
