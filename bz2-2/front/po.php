@@ -1,11 +1,11 @@
 <style>
-    .type-item{
-        display: block; /*換行*/
-        margin: 3px 6px;
-    }
     .types, .news-list{
-        display: inline-block; /*並排*/
+        display: inline-block;
         vertical-align: top;
+    }
+    .type-items{
+        display: block;
+        margin: 3px 6px;
     }
     .news-list{
         width: 600px;
@@ -16,10 +16,10 @@
 </div>
 <fieldset class="types">
     <legend>分類網誌</legend>
-    <a class="type-item" data-type="1">健康新知</a>
-    <a class="type-item" data-type="2">菸害防治</a>
-    <a class="type-item" data-type="3">癌症防治</a>
-    <a class="type-item" data-type="4">慢性病防治</a>
+    <a class="type-items" data-type="1">健康新知</a>
+    <a class="type-items" data-type="2">菸害防治</a>
+    <a class="type-items" data-type="3">癌症防治</a>
+    <a class="type-items" data-type="4">慢性病防治</a>
 </fieldset>
 <fieldset class="news-list">
     <legend>文章列表</legend>
@@ -28,9 +28,9 @@
 </fieldset>
 <script>
     getList(1)
-    $('.type-item').on('click',function(){
+    $('.type-items').on('click',function(){
         $('.type').text($(this).text())
-        let type=$(this).data('type') //很重要 取裡面data括號裡面要用''包
+        let type=$(this).data('type')
         getList(type)
     })
     function getList(type){
@@ -45,6 +45,9 @@
             $('.article').html(news)
             $('.article').show()
             $('.list-items').hide()
+            
+            
         })
     }
+
 </script>
