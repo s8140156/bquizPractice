@@ -8,7 +8,7 @@ class DB{
     protected $pdo;
     protected $table;
 
-    function __constrcut($table){
+    function __construct($table){
         $this->table=$table;
         $this->pdo=new PDO($this->dsn,'root','');
     }
@@ -113,5 +113,8 @@ function to($url){
 }
 
 $Title=new DB('title');
+$Total=new DB('total');
+$Bottom=new DB('bottom');
+
 
 ?>
