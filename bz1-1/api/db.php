@@ -14,7 +14,7 @@ class DB{
     }
     
     function all($where='',$other=''){
-        $sql="select * from `$this->table `";
+        $sql="select * from `$this->table` ";
         $sql=$this->sql_all($sql,$where,$other);
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -115,6 +115,14 @@ function to($url){
 $Title=new DB('title');
 $Total=new DB('total');
 $Bottom=new DB('bottom');
+
+if(isset($_GET['do'])){
+    if(isset(${ucfirst($_GET['do'])})){
+        $DB=${ucfirst($_GET['do'])};
+    }
+}else{
+    $DB=$Title;
+}
 
 
 ?>
