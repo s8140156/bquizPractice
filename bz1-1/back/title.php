@@ -17,16 +17,17 @@
                 <tr>
                     <!-- 以下表格是新增的 是後台資料回來格式 注意不需要id但要放value(放資料) --> 
                     <td width="45%"><img src="./img/<?=$row['img'];?>" style="width:300px;height:30px"></td>
-                    <td width="23%"><input type="text" name="text[]" value="<?=$row['text'];?>"></td>
+                    <td width="23%">
+                        <input type="text" name="text[]" style="width:90%" value="<?=$row['text'];?>">
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!--重要 表格記得都要帶個hidden id欄位-->
+                    </td>
                     <td width="7%"><input type="radio" name="sh" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>></td>
                     <td width="7%"><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
                     <td>
                         <input type="button" value="更新圖片" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')"> <!--這邊要加上js op函式-->
-                        <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!--重要 表格記得都要帶個hidden id欄位-->
                     </td>
                 </tr>
-                <?php }
-                ?>
+                <?php } ?>
             </tbody>
         </table>
         <table style="margin-top:40px; width:70%;">
