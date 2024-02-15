@@ -32,7 +32,7 @@
                         <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>></td>
                         <td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>"></td>
                         <td>
-                            <input type="button" value="更換圖片" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')"> <!--這邊要加上js op函式-->
+                            <input type="button" value="更換動畫" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')"> <!--這邊要加上js op函式-->
                         </td>
                     </tr>
                 <?php } ?>
@@ -53,7 +53,6 @@
                 $next=$now+1;
                 echo "<a href='?do=$do&p=$next'> > </a>";
             }
-
             ?>
         </div>
         <table style="margin-top:40px; width:70%;">

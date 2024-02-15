@@ -30,7 +30,7 @@
                     <td><input type="checkbox" name="sh[]" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>></td>
                     <td><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
                     <td>
-                        <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')"> <!--這邊要加上js op函式-->
+                        <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')"> <!--次選單路徑是單獨的modal/submenu-->
                     </td>
                 </tr>
                 <?php } ?>
