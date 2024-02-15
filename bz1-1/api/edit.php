@@ -12,7 +12,7 @@ foreach($_POST['id'] as $key=>$id){
     }else{
         $row=$DB->find($id);
         if(isset($row['text'])){
-            $row['text']=$_POST['text'][$key]; //這邊有ad,news ; mvim,image=>沒有text欄位;total,bottom沒有"text欄位"是獨立處理
+            $row['text']=$_POST['text'][$key]; //這邊有ad,news,title,admin ; mvim,image=>沒有text欄位;total,bottom沒有"text欄位"是獨立處理
         }
         switch($table){
             case 'title':

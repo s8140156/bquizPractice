@@ -37,12 +37,12 @@
 			</div>
 			<!--拆去front/main-s -->
 			<?php
-			$do = $_GET['do'] ?? 'main';
-			$file = "./front/{$do}.php";
-			if (file_exists($file)) {
+			$do=$_GET['do']??'main';
+			$file="./front/{$do}.php";
+			if(file_exists($file)){
 				include $file;
-			} else {
-				include "./front/main.php";
+			}else{
+				include"./front/main.php";
 			}
 			?>
 			<!--拆去front/main-End -->

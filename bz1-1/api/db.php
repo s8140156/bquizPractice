@@ -115,6 +115,9 @@ function to($url){
 $Title=new DB('title');
 $Total=new DB('total');
 $Bottom=new DB('bottom');
+$Ad=new DB('ad');
+$Mvim=new DB('mvim');
+
 
 if(isset($_GET['do'])){
     if(isset(${ucfirst($_GET['do'])})){
