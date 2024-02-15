@@ -87,9 +87,9 @@
 
 				<!--這塊搬到back/title-s-->
 				<?php
-				$do = $_GET['do'] ?? 'title';
-				$file = "./back/{$do}.php";
-				if (file_exists($file)) {
+				$do=$_GET['do']??'title';
+				$file="./back/{$do}.php";
+				if(file_exists($file)){
 					include $file;
 				} else {
 					include "./back/title.php";

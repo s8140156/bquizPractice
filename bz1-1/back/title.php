@@ -16,7 +16,7 @@
                 ?>
                 <tr>
                     <!-- 以下表格是新增的 是後台資料回來格式 注意不需要id但要放value(放資料) --> 
-                <td width="45%"><img src="./img/<?=$row['img'];?>" style="width:300px;height:30px"></td>
+                    <td width="45%"><img src="./img/<?=$row['img'];?>" style="width:300px;height:30px"></td>
                     <td width="23%"><input type="text" name="text[]" value="<?=$row['text'];?>"></td>
                     <td width="7%"><input type="radio" name="sh" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>></td>
                     <td width="7%"><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
@@ -32,10 +32,10 @@
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
+                    <input type="hidden" name="table" value="<?=$do;?>"> <!--這邊要注意hidden value要帶傳回來的$do-->
                     <!-- 這邊非常重要 要把彈出視窗的連結改成連結網址參數取代輸入檔名 還需要帶上table參數 以利不同的功能網站串連 -->
                     <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?=$do;?>.php?table=<?=$do;?>')" value="新增網站標題圖片"></td>
                     <td class="cent">
-                        <input type="hidden" name="table" value="<?=$do;?>"> <!--這邊要注意hidden value要帶傳回來的$do-->
                         <input type="submit" value="修改確定">
                         <input type="reset" value="重置">
                     </td>
