@@ -3,7 +3,7 @@
 <hr>
 <form action="./api/submenu.php" method="post" enctype="multipart/form-data">
     <!-- 注意是特別寫的api不是共用是獨立的 -->
-    <table class="cent" id="sub">
+    <table style="text-align:center;margin:auto" id="sub">
         <tr>
             <td>次選單名稱</td>
             <td>次選單連結網址</td>
@@ -15,7 +15,7 @@
         ?>
         <tr>
             <td><input type="text" name="text[]" value="<?=$sub['text'];?>"></td>
-            <td><input type="text" name="href[]" value="<?=$sub['text'];?>"></td>
+            <td><input type="text" name="href[]" value="<?=$sub['href'];?>"></td>
             <td>
                 <input type="checkbox" name="del[]" value="<?=$sub['id'];?>">
             </td>
