@@ -72,16 +72,33 @@
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+					<div class="cent" onclick="pp(1)">
+						<img src="./icon/up.jpg" alt="">
+					</div>
+					<?php
+					$imgs=$Image->all(['sh'=>1]);
+					foreach($imgs as $idx=>$img){
+					?>
+					<div id="ssaa<?=$idx;?>" class="im cent"> <!--這個tag包括id:ssaa及class:im 注意看script寫法 先隱藏class然後依點選的id顯示 建這個div包img-->
+					<img src="./img/<?=$img['img'];?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
+					</div>
+					<?php
+					}
+					?>
+					<div class="cent" onclick="pp(2)">
+						<img src="./icon/dn.jpg" alt="">
+					</div>
 					<script>
-						var nowpage = 0,
-							num = 0;
+						var nowpage = 1, //變數修改為1
+							num = <?=$Image->count(['sh'=>1]);?>; //直接從資料庫去算
 
 						function pp(x) {
 							var s, t;
 							if (x == 1 && nowpage - 1 >= 0) {
 								nowpage--;
 							}
-							if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+							// if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+							if (x == 2 && nowpage<=(num-3)) { //判斷式修改
 								nowpage++;
 							}
 							$(".im").hide()
