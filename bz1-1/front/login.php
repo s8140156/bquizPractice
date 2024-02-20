@@ -1,4 +1,12 @@
 <!-- login區段 -->
+<?php
+if(isset($_SESSION['login'])){
+	to("back.php");
+}
+if(isset($_GET['error'])){
+	echo "<script>alert('{$_GET['error']}')</script>";
+}
+?>
 <div class="di" style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
 	<!-- marquee start -->
 	<?php include "marquee.php"; ?>

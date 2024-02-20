@@ -1,4 +1,4 @@
-<?php include_once "./api/db.php"; ?>
+<?php include_once "./api/db.php";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -94,7 +94,17 @@
 			</script> -->
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
+				<?php
+				if(isset($_SESSION['login'])){
+					$url="lo('back.php')";
+					$str="返回管理";
+				}else{
+					$url="lo('index.php?do=login')";
+					$str="管理登入";
+				}
+
+				?>
+				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="<?=$url;?>"><?=$str;?></button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 					<div class="cent" onclick="pp(1)">
