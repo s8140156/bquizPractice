@@ -102,7 +102,6 @@
 					$url="lo('index.php?do=login')";
 					$str="管理登入";
 				}
-
 				?>
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="<?=$url;?>"><?=$str;?></button>
 				<div style="width:89%; height:480px;" class="dbor">
