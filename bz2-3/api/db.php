@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 
 class DB{
-    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db65";
+    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db66";
     protected $pdo;
     protected $table;
 
@@ -81,7 +81,7 @@ class DB{
 
     private function a2s($array){
         foreach($array as $col=>$value){
-            $tmp[]=" `$col`='$value'";
+            $tmp[]="`$col`='$value'";
         }
         return $tmp;
     }
@@ -90,7 +90,7 @@ class DB{
         if(isset($this->table) && !empty($this->table)){
             if(is_array($array)){
                 if(!empty($array)){
-                    $tmp=$this->a2s($sql);
+                    $tmp=$this->a2s($array);
                     $sql .=" where ".join(" && ",$tmp);
                 }
             }else{
@@ -111,6 +111,19 @@ function dd($array){
 
 function to($url){
     header("location:$url");
+}
+
+$Total=new DB('total');
+
+if(!isset($_SESSION['visited'])){
+    if($Total->count(['date'=>date('Y-m-d')])>0){
+        $total=$Total->find(['date'=>date('Y-m-d')]);
+        $total['total']++;
+        $Total->save($total);
+    }else{
+        $Total->save(['total'=>1,'date'=>date('Y-m-d')]);
+    }
+    $_SESSION['visited']=1;
 }
 
 
