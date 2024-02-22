@@ -3,7 +3,7 @@
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>(練習3＿前)健康促進網</title>
+<title>(練習3_後)健康促進網</title>
 <link href="./css/css.css" rel="stylesheet" type="text/css">
 <script src="./js/jquery-1.9.1.min.js"></script>
 <script src="./js/js.js"></script>
@@ -58,11 +58,11 @@
                     	<div class="">
 							<?php
 							$do=$_GET['do']??'main';
-							$file="./front/{$do}.php";
+							$file="./back/{$do}.php";
 							if(file_exists($file)){
 								include $file;
 							}else{
-								include "./front/main.php";
+								include "./back/main.php";
 							}
 							?>
                 		                        </div>
