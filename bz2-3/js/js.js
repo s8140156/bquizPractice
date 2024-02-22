@@ -19,3 +19,7 @@ function good(id,type,user)
 		}
 	})
 }
+
+function clean(){
+	$("input[type='text'],input[type='number'],input[type='checkbox'],input[type='password']").val("");
+}
