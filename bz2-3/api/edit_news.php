@@ -14,7 +14,7 @@ if(isset($_POST['id'])){
     }
 }
 
-to("location:../back.php?do=news");
+to("../back.php?do=news");
 
 
 
