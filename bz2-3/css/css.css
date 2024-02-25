@@ -38,7 +38,7 @@ a:hover {
 
 #mm {
 	/* min-height:570px; */
-	height: 520px; /**/
+	height: 520px; /*給我記住 是固定高度使用height*/
 }
 
 #all {
