@@ -11,7 +11,7 @@ $que=$Que->find($_GET['id']);
         $rate=round($opt['vote']/$total,2);
         echo "<div style='width:95%;display:flex;align-items:center;margin:10px 0'>";
         echo "<div style='width:50%'>{$opt['text']}</div>";
-        echo "<div style='width:".(40*$rate)."%;height:20px;background-color:#ccc'></div>";
+        echo "<div style='width:".(40*$rate)."%;background-color:#ccc;height:20px'></div>";
         echo "<div style='width:10%'>{$opt['vote']}票(".($rate*100)."%)</div>";
         echo "</div>";
     }
