@@ -61,7 +61,6 @@ class DB{
             $sql=$sql . $cols . " values " . $vals;
         }
         return $this->pdo->exec($sql);
-        echo $sql;
     }
     function del($id){
         $sql="delete from `$this->table` ";
@@ -108,7 +107,6 @@ function to($url){
     header("location:$url");
 }
 
-$Alto=new DB('alto');
 
 
 ?>
