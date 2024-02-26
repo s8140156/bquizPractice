@@ -8,7 +8,7 @@ include_once "db.php";
 // dd($res);
 
 // $Alto->save(['total'=>100,'text'=>'要成功啊','sh'=>'0']);
-$Alto->save(['id'=>'1','text'=>'拜託再一次成功','sh'=>'0']);
+// $Alto->save(['id'=>'1','text'=>'拜託再一次成功','sh'=>'0']);
 
 
 
