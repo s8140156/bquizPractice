@@ -15,7 +15,7 @@
             <tr>
                 <td><?=$row['acc'];?></td>
                 <td><?=str_repeat('*',mb_strlen($row['pw']));?></td>
-                <td><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
+                <td><input type="checkbox" name="del[]" value="<?$row['id'];?>"></td>
                 <!-- 非常重要 checkbox是帶回資料庫的id所以是放在"value"傳回 不是給屬性id 目前發生寫成id=""造成sql無法辨識哪個id需刪除(我想根本沒傳回去因為也get不到) -->
             </tr>
             <?php
