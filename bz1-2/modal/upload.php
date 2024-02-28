@@ -1,13 +1,13 @@
 <?php
 switch($_GET['table']){
     case 'title':
-        echo "<h3>更新網站標題區圖片</h3>";
+        echo "<h3 class='cent'>更新網站標題區圖片</h3>";
     break;
     case 'mivm':
-        echo "<h3>更新動畫圖片</h3>";
+        echo "<h3 class='cent'>更新動畫圖片</h3>";
     break;
     case 'image':
-        echo "<h3>更新校園映像圖片</h3>";
+        echo "<h3 class='cent'>更新校園映像圖片</h3>";
     break;
 }
 ?>
