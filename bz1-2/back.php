@@ -69,11 +69,23 @@
 
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 :<?=$Total->find(4)['total'];?></span>
+					<span class="t">進站總人數 :<?= $Total->find(4)['total']; ?></span>
 				</div>
 			</div>
 			<!-- back di start -->
-			<?php
+			<div class="di" style="height:540px; border:#999 1px solid; width:76.5%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
+				<!--正中央-->
+				<table width="100%">
+					<tbody>
+						<tr>
+							<td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;" class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a></td>
+							<!-- <td><button onclick="document.cookie=&#39;user=&#39;;location.replace(&#39;?&#39;)" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td> -->
+							<!-- !!修改!!採以下session不是cookie判斷-->
+							<td><button onclick="location.href='./api/logout.php'" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<?php
 				$do=$_GET['do']??'title';
 				$file="./back/{$do}.php";
 				if(file_exists($file)){
@@ -82,6 +94,7 @@
 					include "./back/title.php";
 				}
 				?>
+			</div>
 			<!-- back di end -->
 			<!--下面是多餘的彈出視窗div=alt+script 先註解-->
 			<!-- <div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
@@ -103,7 +116,7 @@
 		</div>
 		<div style="clear:both;"></div>
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?=$Bottom->find(5)['bottom'];?></span>
+			<span class="t" style="line-height:123px;"><?= $Bottom->find(5)['bottom']; ?></span>
 		</div>
 	</div>
 

@@ -110,6 +110,7 @@ function to($url){
 
 $Bottom=new DB('bottom');
 $Total=new DB('total');
+$Title=new DB('title');
 
 
 ?>
