@@ -115,10 +115,10 @@ $Title=new DB('title');
 if(isset($_GET['do'])){
     if(isset(${ucfirst($_GET['do'])})){
         $DB=${ucfirst($_GET['do'])};
-    }else{
+    }
+}else{ //注意 一樣 上面的判斷是做完 這段是“如果沒有”get do值時的判斷 請注意判斷對稱位置
         $DB=$Title;
     }
-}
 
 
 

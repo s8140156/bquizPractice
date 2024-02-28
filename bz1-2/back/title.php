@@ -17,8 +17,8 @@
                 <tr class="cent">
                     <td width="45%"><img src="./img/<?=$row['img'];?>" style="width:300px;height:30px"></td>
                     <td width="23%"><input type="text" name="text[]" style="width:90%" value="<?=$row['text'];?>"></td>
-                    <td width="7%"><input type="radio" name="sh" value="<?=$row['sh'];?>"<?=($row['sh']==1)?'checked':'';?>></td>
-                    <td width="7%"><input type="checkbox" name="del[]" value="<?=$row['sh'];?>"></td>
+                    <td width="7%"><input type="radio" name="sh" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>></td>
+                    <td width="7%"><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
                     <td><!--下面修改重要!! 更新圖片要增加op function注意路徑是在modal/upload.php並網路傳值帶table及id-->
                         <!-- 務必記得要增加hidden id欄位 -->
                         <input type="button" value="更新圖片" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')">
@@ -36,7 +36,7 @@
                     <td class="cent">
                         <input type="submit" value="修改確定">
                         <input type="reset" value="重置">
-                        <!-- <input type="hidden" name="table" value="table"> -->
+                        <input type="hidden" name="table" value="<?=$do;?>">
                         <!-- 這邊注意!!要增加帶hidden table欄位 name&value都是table -->
                     </td>
                 </tr>
