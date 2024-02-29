@@ -12,7 +12,7 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=$DB->all();
+                $rows=$DB->all(['menu_id'=>0]); //別忘記加上只show主選單id 不然就全show了
                 foreach($rows as $row){
                 ?>
                 <tr class="cent">
@@ -21,9 +21,10 @@
                     <td><?=$Menu->count(['menu_id'=>$row['id']]);?></td>
                     <td><input type="checkbox" name="sh[]" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>></td>
                     <td><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
-                    <td><!--下面修改重要!! 更新圖片要增加op function注意路徑是在modal/upload.php並網路傳值帶table及id-->
+                    <td><!--網路傳值帶table及id-->
                         <!-- 務必記得要增加hidden id欄位 -->
                         <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')">
+                        <!-- 這邊是指定去submenu路徑不帶$do -->
                         <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                     </td>
                 </tr>
