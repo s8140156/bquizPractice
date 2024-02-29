@@ -3,7 +3,7 @@ switch($_GET['table']){
     case 'title':
         echo "<h3 class='cent'>更新網站標題區圖片</h3>";
     break;
-    case 'mivm':
+    case 'mvim':
         echo "<h3 class='cent'>更新動畫圖片</h3>";
     break;
     case 'image':
@@ -13,7 +13,7 @@ switch($_GET['table']){
 ?>
 <hr>
 <form action="./api/upload.php" method="post" enctype="multipart/form-data">
-    <table style="margin:auto;width:70%">
+    <table class="cent" style="margin:auto;width:70%">
         <tr>
         <?php
         switch($_GET['table']){

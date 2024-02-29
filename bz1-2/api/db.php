@@ -111,6 +111,13 @@ function to($url){
 $Bottom=new DB('bottom');
 $Total=new DB('total');
 $Title=new DB('title');
+$Ad=new DB('ad');
+$News=new DB('news');
+$Mvim=new DB('mvim');
+$Image=new DB('image');
+$Menu=new DB('menu');
+$Admin=new DB('admin');
+
 
 if(isset($_GET['do'])){
     if(isset(${ucfirst($_GET['do'])})){
