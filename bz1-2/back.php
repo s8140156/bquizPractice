@@ -21,8 +21,11 @@
 	</div>
 	<!-- <iframe style="display:none;" name="back" id="back"></iframe> --><!--去除iframe-->
 	<div id="main">
-		<a title="" href="?">
-			<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div><!--標題-->
+		<?php
+		$title=$Title->find(['sh'=>1]);
+		?>
+		<a title="<?=$total['text'];?>" href="index.php">
+			<div class="ti" style="background:url(&#39;./img/<?=$title['img'];?>&#39;); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
@@ -69,7 +72,7 @@
 
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 :<?= $Total->find(4)['total']; ?></span>
+					<span class="t">進站總人數 :<?= $Total->find(5)['total']; ?></span>
 				</div>
 			</div>
 			<!-- back di start -->
