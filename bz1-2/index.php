@@ -31,7 +31,31 @@
 			<div id="lf" style="float:left;">
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
-					<span class="t botli">主選單區</span>
+					<span class="t botli">主選單區</span> <!--從這邊開始寫選單表列!!!-->
+					<?php
+					$rows=$Menu->all(['sh'=>1,'menu_id'=>0]);
+					foreach($rows as $row){
+					?>
+					<div class="mainmu"> <!--mainmu是既有css樣式-->
+						<a href="<?=$row['href'];?>" style="color:#000;font-size:13px;text-decoration:none">
+						<?=$row['text'];?>
+						</a>
+						<?php
+						if($Menu->count(['menu_id'=>$row['id']])>0){ //先確認是否有次選單(與撈出來主選單比)
+							echo "<div class='mw'>"; //如果有次選單的menu_id 才顯現次選單樣式
+							$subs=$Menu->all(['menu_id'=>$row['id']]);
+							foreach($subs as $sub){
+								echo "<a href='{$sub['href']}'>";
+								echo "<div class='mainmu2'>"; //既有格式
+								echo $sub['text'];
+								echo "</div>";
+								echo "</a>";
+							}
+							echo "</div>";
+						}
+						?>
+					</div>
+					<?php } ?>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :<?=$Total->find(5)['total'];?></span>
@@ -77,7 +101,7 @@
 					foreach($rows as $idx=>$row){
 					?>
 					<div id="ssaa<?=$idx;?>" class="im cent">
-					<img src="./img/<?=$row['img'];?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
+					<img src="./img/<?=$row['img'];?>" style="width:150px;height:103px;border:3px solid #EE7728;margin:5px">
 					</div>
 					<?php
 					}
