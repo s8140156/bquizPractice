@@ -60,7 +60,7 @@
 
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 : <?=$Total->find(1)['total'];?></span>
+					<span class="t">進站總人數 : <?=$Total->find(4)['total'];?></span>
 				</div>
 			</div>
 			<!--拆去front/main-s -->
@@ -148,7 +148,7 @@
 		</div>
 		<div style="clear:both;"></div>
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?=$Bottom->find(1)['bottom'];?></span>
+			<span class="t" style="line-height:123px;"><?=$Bottom->find(5)['bottom'];?></span>
 		</div>
 	</div>
 

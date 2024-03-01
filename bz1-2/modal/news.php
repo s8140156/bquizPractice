@@ -4,7 +4,7 @@
     <table style="margin:auto">
         <tr>
             <td>最新消息資料：</td>
-            <td><input type="text" name="text" style="width:300px;height:150px"></td>
+            <td><textarea type="text" name="text" style="width:300px;height:150px"></textarea></td>
         </tr>
     </table>
     <div class="cent">

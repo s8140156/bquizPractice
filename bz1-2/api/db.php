@@ -112,10 +112,10 @@ $Bottom=new DB('bottom');
 $Total=new DB('total');
 $Title=new DB('title');
 $Ad=new DB('ad');
+$News=new DB('news');
 $Mvim=new DB('mvim');
 $Image=new DB('image');
 $Menu=new DB('menu');
-$News=new DB('news');
 $Admin=new DB('admin');
 
 
