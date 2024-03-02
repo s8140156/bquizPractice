@@ -107,7 +107,7 @@ function to($url){
     header("location:$url");
 }
 
-$Amen=new DB('amen');
+$Bottom=new DB('bottom');
 
 
 ?>
