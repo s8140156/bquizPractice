@@ -41,9 +41,9 @@
 </script>
 <?php
 //測試寫入功能寫法
-// $admin['acc']='admin';
+// $admin['acc']='test';
 // $admin['pw']='1234';
-// $admin['pr']=serialize([1,2,3,4,5]);
+// $admin['pr']=serialize([1,2,3]);
 // $Admin->save($admin);
 
 ?>
