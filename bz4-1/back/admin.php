@@ -1,6 +1,6 @@
 
 <div class="ct">
-    <button onclick="location.href='add_admin'">新增管理員</button>
+    <button onclick="location.href='?do=add_admin'">新增管理員</button>
 </div>
 <table class="all ct">
     <tr>
