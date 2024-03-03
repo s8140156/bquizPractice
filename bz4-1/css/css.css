@@ -39,12 +39,14 @@ body
 {
 	text-align:center;
 }
-#right
+#right /*改這邊會讓商品管理四個button不會一個直欄 會兩行兩行並排*/
 {
 	display:inline-block;
-	width:65%;
+	width:71%; /*65->71*/
 	padding:2%;
-	min-height:550px;
+	/* min-height:550px; */
+	height:550px; /*改固定高度*/
+	overflow: auto; /*新增*/
 	border:#000 1px solid;
 }
 #bottom
