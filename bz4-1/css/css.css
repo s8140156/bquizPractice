@@ -58,7 +58,9 @@ body {
 
 #bottom {
 	height: 70px;
+	background:url(../icon/bot.png);
 	background-size: cover;
+
 }
 
 .al {
@@ -72,7 +74,7 @@ body {
 }
 
 .all td {
-	min-width: 100px;
+	min-width: 50px; /*100->50*/
 	padding: 10px;
 }
 
