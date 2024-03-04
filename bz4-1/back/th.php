@@ -68,7 +68,7 @@
     }
 </script>
 <h2 class="ct">商品管理</h2>
-<div class="ct"><button>新增商品</button></div>
+<div class="ct"><button onclick="location.href='?do=add_goods'">新增商品</button></div>
 <table class="all">
     <tr class="tt ct">
         <td>編號</td>
@@ -77,16 +77,30 @@
         <td>狀態</td>
         <td>操作</td>
     </tr>
-    <tr class="pp">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+    <?php
+    $rows=$Goods->all();
+    foreach($rows as $row){ 
+    ?>
+    <tr class="pp ct">
+        <td><?=$row['no'];?></td>
+        <td><?=$row['name'];?></td>
+        <td><?=$row['stock'];?></td>
+        <td><?=($row['sh']==1)?'上架':'下架';?></td>
         <td>
-            <button>修改</button>
-            <button>刪除</button>
-            <button>上架</button>
-            <button>下架</button>
+            <button onclick="location.href='?do=edit_goods&id<?=$row['id'];?>'">修改</button>
+            <button onclick="del('goods',<?=$row['id'];?>)">刪除</button>
+            <button onclick="sh(1,<?=$row['id'];?>)">上架</button>
+            <button onclick="sh(0,<?=$row['id'];?>)">下架</button>
         </td>
     </tr>
+    <?php   }
+    ?>
 </table>
+<script>
+    function sh(sh,id){
+        $.post('./api/sh.php',{id,sh},()=>{
+            location.reload()
+        })
+    }
+
+</script>
