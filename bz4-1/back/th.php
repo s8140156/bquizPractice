@@ -87,7 +87,7 @@
         <td><?=$row['stock'];?></td>
         <td><?=($row['sh']==1)?'上架':'下架';?></td>
         <td>
-            <button onclick="location.href='?do=edit_goods&id<?=$row['id'];?>'">修改</button>
+            <button onclick="location.href='?do=edit_goods&id=<?=$row['id'];?>'">修改</button> <!--那個..請注意帶id寫法 &id=-->
             <button onclick="del('goods',<?=$row['id'];?>)">刪除</button>
             <button onclick="sh(1,<?=$row['id'];?>)">上架</button>
             <button onclick="sh(0,<?=$row['id'];?>)">下架</button>
