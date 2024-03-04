@@ -57,6 +57,15 @@
             location.reload()
         })
     }
+    function edit(dom,id){
+        let text=$(dom).parent().prev().text()
+        let name=prompt('請輸入要修改的分類文字:',text)
+        if(name!=''){
+            $.post('./api/save_type.php',{name,id},()=>{
+                $(dom).parent().prev().text(name)
+            })
+        }
+    }
 </script>
 <h2 class="ct">商品管理</h2>
 <div class="ct"><button>新增商品</button></div>
