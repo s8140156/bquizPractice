@@ -58,10 +58,12 @@ $row=$Goods->find($_GET['id']);
 			switch(type){
 				case 'big':
 					$('#big').html(types)
+					$('#big').val(<?=$row['big'];?>) //當要編輯時 選擇修改商品 大分類要by selected固定
 					getTypes('mid',$('#big').val())
 				break;
 				case 'mid':
 					$('#mid').html(types)
+					$('#mid').val(<?=$row['mid'];?>) //當要編輯時 選擇修改商品 中分類要by selected固定
 				break;
 			}
 		})
