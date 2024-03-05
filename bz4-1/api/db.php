@@ -112,6 +112,7 @@ $Mem=new DB('mem');
 $Admin=new DB('admin');
 $Type=new DB('type');
 $Goods=new DB('goods');
+$Orders=new DB('orders'); //order在sql是保留字 所以資料表要取名orders
 
 
 ?>
