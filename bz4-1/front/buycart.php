@@ -41,7 +41,7 @@ if(empty($_SESSION['cart'])){
 </table>
 <div class="ct"><img src="./icon/0411.jpg" onclick="location.href='index.php'">&nbsp;&nbsp;<img src="./icon/0412.jpg" onclick="location.href='?do=checkout'"></div>
 <script>
-	function delCart(){
+	function delCart(id){ //這邊要記得把id這個參數寫上 不然會傳不會來
 		$.post('./api/del_cart.php',{id},()=>{
 			location.href='?do=buycart';
 		})
