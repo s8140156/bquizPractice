@@ -35,10 +35,17 @@
         getList(type);
     })
     function getList(type){
-        $.post('/.api/get_list.php',{type},(res)=>{
+        $.get('./api/get_list.php',{type},(res)=>{
             $('.list-item').html(res)
             $('.article').hide()
             $('.list-item').show()
+        })
+    }
+    function getNews(id){
+        $.get('./api/get_news.php',{id},(res)=>{
+            $('.article').html(res)
+            $('.article').show()
+            $('.list-item').hide()
 
         })
     }

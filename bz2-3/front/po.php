@@ -34,7 +34,7 @@
         getList(type);
     })
     function getList(type){
-        $.get('./api/get_list.php',{type},(list)=>{
+        $.get('./api/get_list.php',{type},(list)=>{ //居然在這邊把路徑. 放錯 服了你
             $('.list-item').html(list)
             $('.article').hide()
             $('.list-item').show()
