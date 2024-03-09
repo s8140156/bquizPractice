@@ -7,7 +7,7 @@
         </div>
         <div class="clo">
             <div id="opt">選項
-                <input type="text" name="opt[]" id="">
+                <input type="text" name="option[]" id="">
                 <input type="button" value="更多" onclick="more()">
             </div>
         </div>
@@ -20,7 +20,7 @@
     function more(){
         let opt=`
              <div>選項
-                <input type="text" name="opt[]" id="">
+                <input type="text" name="option[]" id="">
             </div>`;
         $('#opt').after(opt);
     }
