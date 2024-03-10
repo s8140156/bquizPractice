@@ -17,8 +17,8 @@
 </div>
 <fieldset class="types">
     <legend>分類網誌</legend>
-    <a class="type-item" data-type="1 active">健康新知</a>
-    <a class="type-item" data-type="2">菸害防制</a>
+    <a class="type-item" data-type="1">健康新知</a>
+    <a class="type-item" data-type="2">菸害防治</a>
     <a class="type-item" data-type="3">癌症防治</a>
     <a class="type-item" data-type="4">慢性病防治</a>
 </fieldset>
@@ -37,7 +37,7 @@
     function getList(type){
         $.get('./api/get_list.php',{type},(res)=>{
             $('.list-item').html(res)
-            $('article').hide()
+            $('.article').hide()
             $('.list-item').show()
         })
     }
