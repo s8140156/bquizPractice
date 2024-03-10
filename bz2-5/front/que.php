@@ -20,7 +20,7 @@
             <td>
                 <?php
                 if(isset($_SESSION['user'])){
-                    echo "<a href='index.php?do=vote&id={$row['id']}'>參與投票</a>";
+                    echo "<a href='?do=vote&id={$row['id']}'>參與投票</a>";
                 }else{
                     echo "請先登入";
                 }
