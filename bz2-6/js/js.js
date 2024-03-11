@@ -19,3 +19,6 @@ function good(id,type,user)
 		}
 	})
 }
+function clean(){
+	$("input[type='text'],input[type='password'],input[type='radio'],input[type='checkbox']").val("");
+}

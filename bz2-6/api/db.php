@@ -61,9 +61,9 @@ class DB{
             $sql .=" where `id`='{$array['id']}'";
         }else{
             $sql="insert into `$this->table` ";
-            $cols="(`" . join("`,`",array_keys($array)) . "`)";
+            $cols="(`" .join("`,`",array_keys($array)) . "`)";
             $vals="('" .join("','",$array) . "')";
-            $sql=$sql . $cols . " values " .$vals;
+            $sql=$sql . $cols . " values " . $vals;
         }
         return $this->pdo->exec($sql);
     }
@@ -94,7 +94,7 @@ class DB{
                 }
                 $sql .=" where ".join(" && ",$tmp);
             }else{
-                $sql .= " $array";
+                $sql .=" $array";
             }
             $sql .=$other;
             return $sql;
@@ -117,6 +117,17 @@ $User=new DB('user');
 $News=new DB('news');
 $Log=new DB('log');
 $Que=new DB('que');
+
+if(!isset($_SESSION['visited'])){
+    if($Total->count(['date'=>date("Y-m-d")])>0){
+        $total=$Total->find(['date'=>date("Y-m-d")]);
+        $total['total']++;
+        $Total->save($total);
+    }else{
+        $Total->save(['date'=>date("Y-m-d"),'total'=>1]); //這次是錯多一組[]其實整體邏輯沒錯 請加油
+    }
+    $_SESSION['visited']=1;
+}
 
 
 
