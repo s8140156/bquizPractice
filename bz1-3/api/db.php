@@ -111,6 +111,14 @@ $Title=new DB('title');
 $Bottom=new DB('bottom');
 $Total=new DB('total');
 
+if(isset($_GET['do'])){
+    if(isset(${ucfirst($_GET['do'])})){
+        $DB=${ucfirst($_GET['do'])};
+    }
+}else{
+    $DB=$Title;
+}
+
 
 
 ?>
