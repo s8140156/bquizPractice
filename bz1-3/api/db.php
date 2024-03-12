@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 
 class DB{
-    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db99";
+    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db65";
     protected $pdo;
     protected $table;
 
@@ -107,7 +107,10 @@ function to($url){
     header("location:$url");
 }
 
-$Beta=new DB('beta');
+$Title=new DB('title');
+$Bottom=new DB('bottom');
+$Total=new DB('total');
+
 
 
 ?>
