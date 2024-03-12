@@ -110,6 +110,14 @@ function to($url){
 $Title=new DB('title');
 $Bottom=new DB('bottom');
 $Total=new DB('total');
+$Ad=new DB('ad');
+$Mvim=new DB('mvim');
+$Image=new DB('image');
+$News=new DB('news');
+$Admin=new DB('admin');
+$Menu=new DB('menu');
+
+
 
 if(isset($_GET['do'])){
     if(isset(${ucfirst($_GET['do'])})){

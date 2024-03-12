@@ -124,6 +124,9 @@ body
 {
 	text-align:center;
 }
+.cent > a{
+	text-decoration: none;
+}
 input,button
 {
 	border:#999 1px solid;
