@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 
 class DB{
-    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db99";
+    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db65";
     protected $pdo;
     protected $table;
 
@@ -107,7 +107,30 @@ function to($url){
     header("location:$url");
 }
 
-$Alto=new DB('Alto');
+$Title=new DB('title');
+$Bottom=new DB('bottom');
+$Total=new DB('total');
+$Ad=new DB('ad');
+$Mvim=new DB('mvim');
+$Image=new DB('image');
+$News=new DB('news');
+$Admin=new DB('admin');
+$Menu=new DB('menu');
+
+if(isset($_GET['do'])){
+    if(isset(${ucfirst($_GET['do'])})){
+        $DB=${ucfirst($_GET['do'])};
+    }else{
+        $DB=$Title;
+    }
+}
+
+
+
+
+
+
+
 
 
 
