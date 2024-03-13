@@ -120,10 +120,10 @@ $Menu=new DB('menu');
 if(isset($_GET['do'])){
     if(isset(${ucfirst($_GET['do'])})){
         $DB=${ucfirst($_GET['do'])};
-    }else{
+    }
+}else{
         $DB=$Title;
     }
-}
 
 
 
