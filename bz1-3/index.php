@@ -32,6 +32,30 @@
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
+					<?php
+					$rows=$Menu->all(['sh'=>1,'menu_id'=>0]);
+					foreach($rows as $row){
+					?>
+					<div class="mainmu">
+						<a href="<?=$row['href'];?>" style="text-decoration:none"><?=$row['text'];?></a>
+					<?php
+					if($Menu->count(['menu_id'=>$row['id']])>0){
+						echo "<div class='mw'>"; //mw在js函式庫裡
+						$subs=$Menu->all(['menu_id'=>$row['id']]);
+						foreach($subs as $sub){
+							echo "<a href='{$sub['href']}'>";
+							echo "<div class='mainmu2'>";
+							echo $sub['text'];
+							echo "</div>";
+							echo "</a>";
+						}
+						echo "</div>";
+					}
+					?>
+					</div>
+					<?php
+					}
+					?>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
@@ -68,7 +92,16 @@
 			</script>
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
+				<?php
+				if(isset($_SESSION['login'])){
+					$url="lo('back.php')";
+					$text="返回管理";
+				}else{
+					$url="lo('index.php?do=login')";
+					$text="管理登入";
+				}
+				?>
+				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="<?=$url;?>"><?=$text;?></button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>

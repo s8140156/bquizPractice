@@ -75,6 +75,14 @@ body
 	line-height:30px;
 	padding:2px 10px 2px 10px;
 	margin:7px 1px 7px 1px;
+	height:29px; /*拉大高度 避免被內容撐開*/
+}
+.mw{
+	position: relative;
+	top: -15px;
+	left: 60px;
+	z-index: 10;
+	display: none; /*試試*/
 }
 .mainmu:hover
 {
