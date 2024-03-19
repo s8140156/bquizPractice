@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 
 class DB{
-    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db99";
+    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db68";
     protected $pdo;
     protected $table;
 
@@ -107,7 +107,9 @@ function to($url){
     header("location:$url");
 }
 
-$Alto=new DB('alto');
+$Poster=new DB('poster');
+$Movie=new DB('movie');
+$Orders=new DB('orders');
 
 
 
