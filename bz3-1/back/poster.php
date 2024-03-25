@@ -62,3 +62,14 @@
     </table>
     <div class="ct"><input type="submit" value="新增"><input type="reset" value="重置"></div>
 </form>
+<script>
+    $('.btn').on('click',function(){
+        let id=$(this).data('id')
+        let sw=$(this).data('sw')
+        let table='poster' //院線片也會用到排序 所以設定table參數
+        $.post('./api/sw.php',{id,sw,table},()=>{
+            location.reload();
+        })
+    })
+
+</script>
