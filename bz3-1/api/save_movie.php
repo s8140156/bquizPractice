@@ -23,6 +23,6 @@ if(!isset($_POST['id'])){
 $Movie->save($_POST);
 to("../back.php?do=movie");
 
-
+//把新增與編輯整併一個function
 
 ?>
