@@ -1,9 +1,15 @@
+<style>
+    .form td:nth-child(1){
+        text-align-last: justify;
+        padding: 3px 5px;
+    }
+</style>
 <h2 class="ct">新增院線片</h2>
 <form action="./api/save_movie.php" method="post" enctype="multipart/form-data">
     <div style="display:flex;align-items:start">
         <div style="width:15%">影片資料</div>
         <div style="width:85%">
-        <table class="ts">
+        <table class="ts form">
             <tr>
                 <td class="ct" width="20%">片名</td>
                 <td><input type="text" name="name" id=""></td>
