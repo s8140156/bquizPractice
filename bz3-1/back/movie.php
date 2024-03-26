@@ -58,3 +58,36 @@ foreach($rows as $idx=>$row){
     </div>
     <?php } ?> <!--這次練習因為foreach結尾放錯(括到最外層div) 造成每組電影欄位跑出框架-->
 </div>
+<script>
+    $('.show-btn').on('click',function(){
+        let id=$(this).data('id')
+        $.post('./api/show.php',{id},()=>{
+            switch($(this).text()){
+                case "隱藏":
+                    $(this).text("顯示");
+                break;
+                case "顯示":
+                    $(this).text("隱藏");
+                break;
+            }
+        })
+    })
+    $('.sw-btn').on('click',function(){
+        let id=$(this).data('id')
+        let sw=$(this).data('sw')
+        let table='movie' //院線片也會用到排序 所以設定table參數
+        $.post('./api/sw.php',{id,sw,table},()=>{
+            location.reload();
+        })
+    })
+    $('.edit-btn').on('click',function(){
+        let id=$(this).data('id')
+        location.href=`?do=edit_movie&id=${id}`;
+    })
+    $('.del-btn').on('click',function(){
+        let id=$(this).data('id')
+        $.post('./api/del.php',{id,table:'movie'},()=>{
+            location.reload()
+        })
+    })
+</script>

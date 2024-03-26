@@ -84,7 +84,7 @@ $row=$Movie->find($_GET['id']); //這是在編輯畫面使用ajax所以是每一
         <div style="width:85%"><textarea name="intro" style="width:99%;height:100px"><?=$row['intro'];?></textarea></div>
     </div>
     <div class="ct">
-        <input type="submit" value="新增">
+        <input type="submit" value="編輯">
         <input type="reset" value="重置">
         <input type="hidden" name="id" value="<?=$row['id'];?>">
     </div>
