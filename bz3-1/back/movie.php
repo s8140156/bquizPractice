@@ -46,6 +46,7 @@ foreach($rows as $idx=>$row){
             </div>
             <div>
                 <button class="show-btn" data-id="<?=$row['id'];?>"><?=($row['sh']==1)?'顯示':'隱藏';?></button>
+                <!-- 這邊三元運算是判斷撈出來的sh狀態是什麼的顯示(一開始) 下面btn是點擊動作後的狀態顯示 -->
                 <button class="sw-btn" data-id="<?=$row['id'];?>" data-sw="<?=($idx!==0)?$rows[$idx-1]['id']:$row['id'];?>">往上</button>
                 <button class="sw-btn" data-id="<?=$row['id'];?>" data-sw="<?=(count($rows)-1!=$idx)?$rows[$idx+1]['id']:$row['id'];?>">往下</button>
                 <button class="edit-btn" data-id="<?=$row['id'];?>">編輯電影</button>
@@ -62,14 +63,15 @@ foreach($rows as $idx=>$row){
     $('.show-btn').on('click',function(){
         let id=$(this).data('id')
         $.post('./api/show.php',{id},()=>{
-            switch($(this).text()){
-                case "隱藏":
-                    $(this).text("顯示");
-                break;
-                case "顯示":
-                    $(this).text("隱藏");
-                break;
-            }
+            $(this).text(($(this).text()=='顯示')?'隱藏':'顯示'); //三元運算 及switch寫法
+            // switch($(this).text()){
+            //     case "隱藏": //目前在隱藏狀態下,接下來的動作是
+            //         $(this).text("顯示"); //接下來的動作就是點擊btn後把隱藏變成顯示
+            //     break;
+            //     case "顯示":
+            //         $(this).text("隱藏");
+            //     break;
+            // }
         })
     })
     $('.sw-btn').on('click',function(){
