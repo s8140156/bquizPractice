@@ -14,7 +14,8 @@
     height: 240px;
     position: absolute;
     box-sizing: border-box;
-    display: none; /*先全部隱藏 然後使用jq eq找idx*/
+    display: none; /*先全部隱藏 然後使用jq eq找idx0(第一個)要show*/
+    /* 除了eq方式也可以像第二題先設active(搭配格式display:block) 然後在用點擊方式遇active才show(remove/addClass) */
   }
   .item div img{ /*圖的設定*/
     width: 100%; /*注意 要將div裡面的圖片設定寬度 因上層item已有固定寬度 所以底下的圖片會是100%*/
@@ -23,41 +24,43 @@
   .item div{ /*字的設定*/
     text-align: center;
   }
-  .left,.right{
-    width: 0;
-    border: 20px solid black;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
+  .left,.right{ /*使用css畫三角形(幾何圖形)做左右鍵按鈕*/
+    width: 0; /*只留線的寬度(20px)(只剩左右兩邊的三角形) 沒有內容(把下面的內容拿掉)*/
+    border: 20px solid black; /*設定後長相會是左右兩邊各有一個尖角向內的三角形*/
+    border-top-color: transparent; /*中間的內容(上)設定透明*/
+    border-bottom-color: transparent; /*中間的內容(下)設定透明*/
   }
   .left{
-    border-left-width: 0;
+    border-left-width: 0; /*所以要留下尖角向左邊的三角形(線的寬度) 所以拿掉left-width*/
   }
   .right{
-    border-right-width: 0;
+    border-right-width: 0; /*所以要留下尖角向右邊的三角形(線的寬度) 所以拿掉right-width*/
   }
   .btns{
     width: 360px;
     height: 100px;
-    display: flex;
+    display: flex; /*這邊是在設定裡面小預告片橫列*/
     overflow: hidden;
   }
-  .btn img{
+  .btn img{ /*這是設定小預告片圖片尺寸*/
     width: 60px;
     height: 80px;
   }
   .btn{
     font-size: 12px;
     text-align: center;
-    flex-shrink: 0;
-    width: 90px;
+    flex-shrink: 0; /*(設0)保持原本的寬度(設1-自動縮放)*/
+    width: 90px;  /*(360/4)這邊是算預計要放4個預告片所以每個寬度是90px*/
+    /* 理解是因為已把圖片寬度設定比原本框架小60<90 所以當最上層設定為flex時 看display會全部並排在一起(沒有間隔) */
+    /* 所以再使用flex-shrink應該是圖＋空白=btn的尺寸 造成有間隔 也便於計算移動動畫時的往左往右距離(等距) */
     position: relative;
   }
-  .controls{
+  .controls{ /*設定最上層框架*/
     width: 420px;
     height: 100px;
     position: relative;
     margin-top: 10px;
-    display: flex;
+    display: flex; /*這邊是把兩邊按鈕＋中間內容橫列*/
     align-items: center;
     justify-content: space-around;
   }
@@ -96,6 +99,7 @@
   </div>
 </div>
 <script>
+  $('.item').eq(0).show() //eq選擇位置(索引值)在哪
 
 </script>
 <style>
