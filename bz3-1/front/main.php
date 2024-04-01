@@ -1,10 +1,10 @@
 <style>
   .lists{
-    width:200px;
+    width:200px; /*將lists長寬範圍設定與item一致(限縮範圍) 才不會有動畫產生第一張為動作完結果第二張被撐開 匡在同一區域*/
     height: 240px;
     position: relative;
     left: 114px; /*如果不左移 item原先定位會是預設左上對齊((428-200)/2)並剩下空間要/2才會置中對齊*/
-    overflow: hidden;
+    overflow: hidden; /*將多餘的隱藏掉*/
   }
   .item *{
     box-sizing: border-box; /*不被padding影響*/
@@ -12,7 +12,7 @@
   .item{ /*主預告片區域 先做隱藏應該點選下面預告片時change, item底下帶圖跟字*/
     width:200px;
     height: 240px;
-    position: absolute;
+    position: absolute; /*上下階設定position,對齊左上角位置 這樣動畫會有前後交疊的效果*/
     box-sizing: border-box;
     display: none; /*先全部隱藏 然後使用jq eq找idx0(第一個)要show*/
     /* 除了eq方式也可以像第二題先設active(搭配格式display:block) 然後在用點擊方式遇active才show(remove/addClass) */
@@ -100,8 +100,20 @@
 </div>
 <script>
   $('.item').eq(0).show() //eq選擇位置(索引值)在哪 (選擇第一張海報先顯示)
+  let timer=setInterval(()=>(slide()),3000) //setInterval需要用回呼函式把funtion叫出來 or
+  // let timer=setInterval("slide()",3000) //這是第一題輪播寫法 用字串的方式寫出function
+  let now=0 //這是輪播 先是設定第一張為index0(eq(0))
+  function slide(){
+    $('.item').hide(3000) //show/hide帶入時間後 本身帶有縮放功能
+    now++
+    if(now>8){  //測試循環動畫的邏輯 
+      now=0
+    }
+    $('.item').eq(now).show(3000)
+  }
+
+
   let total=$('.btn').length //計算海報有幾張
-  // let now=0
   let p=0 //決定p的位置(個數 幾個90)為0, 如果0*90=0(原點) 如果1*90=90(距離原來位置90)
   //將p拉到function外面變成"全域變數",才不會當點選後(如果在function內)即馬上回到原點0(老師提有點像session概念 就是記住你的操作狀況 可以一直順應下去)
   // console.log(total)
