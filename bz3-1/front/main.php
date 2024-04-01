@@ -53,7 +53,7 @@
     width: 90px;  /*(360/4)這邊是算預計要放4個預告片所以每個寬度是90px*/
     /* 理解是因為已把圖片寬度設定比原本框架小60<90 所以當最上層設定為flex時 看display會全部並排在一起(沒有間隔) */
     /* 所以再使用flex-shrink應該是圖＋空白=btn的尺寸 造成有間隔 也便於計算移動動畫時的往左往右距離(等距) */
-    position: relative;
+    position: relative; /*需加position才能做動畫的移動(造成平移)*/
   }
   .controls{ /*設定最上層框架*/
     width: 420px;
@@ -99,7 +99,32 @@
   </div>
 </div>
 <script>
-  $('.item').eq(0).show() //eq選擇位置(索引值)在哪
+  $('.item').eq(0).show() //eq選擇位置(索引值)在哪 (選擇第一張海報先顯示)
+  let total=$('.btn').length //計算海報有幾張
+  // let now=0
+  let p=0 //決定p的位置(個數 幾個90)為0, 如果0*90=0(原點) 如果1*90=90(距離原來位置90)
+  //將p拉到function外面變成"全域變數",才不會當點選後(如果在function內)即馬上回到原點0(老師提有點像session概念 就是記住你的操作狀況 可以一直順應下去)
+  // console.log(total)
+  $('.left,.right').on('click',function(){
+    let arrow=$(this).attr('class')
+    switch(arrow){
+      case "right":
+        if(p+1<=(total-4)){
+          p=p+1
+        }
+      break;
+      case "left":
+        if(p-1>=0){
+          p=p-1
+        }
+      break;
+    }
+    // console.log(p)
+    $('.btn').animate({right:90*p}) //使用以右邊計算距離(因為左邊會有-)
+    // 因為往左往右都是使用animate 90*p 所以共通程式拉出來寫 switch只要控制個數p即可
+  })
+
+
 
 </script>
 <style>
