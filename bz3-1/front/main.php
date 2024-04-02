@@ -102,13 +102,18 @@
   $('.item').eq(0).show() //eq選擇位置(索引值)在哪 (選擇第一張海報先顯示)
   let total=$('.btn').length //計算海報有幾張
   let now=0 //這是輪播 先是設定第一張為index0(eq(0))
+  let next=0  //由於後面加入了如果插播後的動畫順序 所以先將next預設0
   let timer=setInterval(()=>{slide()},3000) //setInterval需要用回呼函式把funtion叫出來 or
   // let timer=setInterval("slide()",3000) //這是第一題輪播寫法 用字串的方式寫出function
-  function slide(){
+  function slide(n){ //這邊的n是代表 看是哪種型態的輪播(by idx自動輪播 還是by click插進來的輪播)
     let ani=$('.item').eq(now).data('ani');
-    let next=now+1;
-    if(next>=total){
-      next=0;
+    if(typeof(n)=='undefined'){ //確認傳入的n值是什麼資料型態, 如果n值沒有值(n=undefined),就now+1及確認總共張數
+      next=now+1;
+      if(next>=total){
+        next=0;
+      } 
+    }else{ //如果n有值(就是插撥進來的idx), 就把n帶入next
+      next=n;
     }
     // console.log(ani,now,next,total);
     switch(ani){
@@ -155,6 +160,14 @@
     // console.log(p)
     $('.btn').animate({right:90*p}) //使用以右邊計算距離(因為左邊會有-)
     // 因為往左往右都是使用animate 90*p 所以共通程式拉出來寫 switch只要控制個數p即可
+  })
+  $('.btn').on('click',function(){
+    let idx=$(this).index()
+    // console.log($(this).index())
+    // $('.item').hide()
+    // $('.item').eq(idx).show()
+    slide(idx)
+
   })
   $('.btn').hover( //這是當主海報正在輪播時,滑鼠移入下方預告btn時 先停止輪播動作(使用clearInterval);若移出再恢復動作
     // 此次是設定在預告btn這個範圍內 若要擴大當點選左右鍵即停止 可以再往上層設定.btn->.controls
