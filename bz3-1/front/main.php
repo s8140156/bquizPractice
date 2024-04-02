@@ -100,20 +100,41 @@
 </div>
 <script>
   $('.item').eq(0).show() //eq選擇位置(索引值)在哪 (選擇第一張海報先顯示)
-  let timer=setInterval(()=>(slide()),3000) //setInterval需要用回呼函式把funtion叫出來 or
-  // let timer=setInterval("slide()",3000) //這是第一題輪播寫法 用字串的方式寫出function
+  let total=$('.btn').length //計算海報有幾張
   let now=0 //這是輪播 先是設定第一張為index0(eq(0))
+  let timer=setInterval(()=>{slide()},3000) //setInterval需要用回呼函式把funtion叫出來 or
+  // let timer=setInterval("slide()",3000) //這是第一題輪播寫法 用字串的方式寫出function
   function slide(){
-    $('.item').hide(3000) //show/hide帶入時間後 本身帶有縮放功能
-    now++
-    if(now>8){  //測試循環動畫的邏輯 
-      now=0
+    let ani=$('.item').eq(now).data('ani');
+    let next=now+1;
+    if(next>=total){
+      next=0;
     }
-    $('.item').eq(now).show(3000)
+    // console.log(ani,now,next,total);
+    switch(ani){
+      case 1:
+        $('.item').eq(now).fadeOut(1000,function(){
+          // now++;
+          // if(now>=total){
+          //   now=0  //把重複的程式拉上去共同處理
+          // }
+          $('.item').eq(next).fadeIn(1000)
+        }) //show/hide帶入時間後 本身帶有縮放功能
+      break;
+      case 2:
+        $('.item').eq(now).hide(1000,function(){
+          $('.item').eq(next).show(1000)
+        }) 
+      break;
+      case 3:
+        $('.item').eq(now).slideUp(1000,function(){
+          $('.item').eq(next).slideDown(1000)
+        })
+      break;
+    }
+    now=next; //如果不加這個無法循環 f12會顯示卡到(next跑完交棒給now)
   }
 
-
-  let total=$('.btn').length //計算海報有幾張
   let p=0 //決定p的位置(個數 幾個90)為0, 如果0*90=0(原點) 如果1*90=90(距離原來位置90)
   //將p拉到function外面變成"全域變數",才不會當點選後(如果在function內)即馬上回到原點0(老師提有點像session概念 就是記住你的操作狀況 可以一直順應下去)
   // console.log(total)
@@ -135,6 +156,17 @@
     $('.btn').animate({right:90*p}) //使用以右邊計算距離(因為左邊會有-)
     // 因為往左往右都是使用animate 90*p 所以共通程式拉出來寫 switch只要控制個數p即可
   })
+  $('.btn').hover( //這是當主海報正在輪播時,滑鼠移入下方預告btn時 先停止輪播動作(使用clearInterval);若移出再恢復動作
+    // 此次是設定在預告btn這個範圍內 若要擴大當點選左右鍵即停止 可以再往上層設定.btn->.controls
+    function(){
+      clearInterval(timer)
+    }, //注意兩個function的分隔以, 不是; 而且是需要有符號分隔 不然會有錯誤訊息
+    function(){
+      timer=setInterval(()=>{slide()},3000)
+    }
+  )
+
+
 
 
 
