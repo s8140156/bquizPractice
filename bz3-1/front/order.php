@@ -23,15 +23,21 @@
     function getMovies(){
         $.get('./api/get_movies.php',(movies)=>{
             $('#movie').html(movies);
+            let id=$('#movie').val() //取option裡面的value值(前端方式)(原本是後端寫value帶id去前端)
+            getDates(id);
         })
     }
-    function getDates(){
-        $.get('./api/get_dates.php',(dates)=>{
+    function getDates(id){
+        $.get('./api/get_dates.php',{id},(dates)=>{
             $('#date').html(dates);
+            let movie=$('#movie').val()
+            let date=$('#date').val()
+            getSessions(movie,date)
+
         })
     }
-    function getSessions(){
-        $.get('./api/get_sessions.php',(sessions)=>{
+    function getSessions(movie,date){
+        $.get('./api/get_sessions.php',{movie,date},(sessions)=>{
             $('#session').html(sessions);
         })
     }
