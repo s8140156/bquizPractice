@@ -178,11 +178,6 @@
       timer=setInterval(()=>{slide()},3000)
     }
   )
-
-
-
-
-
 </script>
 <style>
   .movies {
