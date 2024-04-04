@@ -35,6 +35,7 @@
     }
     function getDates(id){
         $.get('./api/get_dates.php',{id},(dates)=>{
+            // console.log(dates) //老師在這邊除錯 也須api那邊要echo出來資料 這樣f12 console才看得到
             $('#date').html(dates);
             let movie=$('#movie').val()
             let date=$('#date').val()
