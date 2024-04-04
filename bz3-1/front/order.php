@@ -19,6 +19,12 @@
 </div>
 <script>
     getMovies();
+
+    $('#movie').on('change',function(){ //此function是用在當選取片單後 日期也需要重新讀取載入(依選的片單的時間)
+        // let id=$('#movie').val() //原本重複宣告id(如果宣告在外面(全域變數))會造成程式重複造成執行問題,但放在回呼函式中各自使用(限定範圍內)則不會打架
+        // getDates(id);
+           getDates($('#movie').val())
+    })
     
     function getMovies(){
         $.get('./api/get_movies.php',(movies)=>{
