@@ -25,6 +25,9 @@
         // getDates(id);
            getDates($('#movie').val())
     })
+    $('#date').on('change',function(){ //當取得日期後 場次也需要重新讀取載入
+           getSessions($('#movie').val(),$('#date').val())
+    })
     
     function getMovies(){
         $.get('./api/get_movies.php',(movies)=>{
