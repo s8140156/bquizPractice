@@ -64,6 +64,8 @@ foreach($rows as $idx=>$row){
         let id=$(this).data('id')
         $.post('./api/show.php',{id},()=>{
             $(this).text(($(this).text()=='顯示')?'隱藏':'顯示'); //三元運算 及switch寫法
+            //注意jq的括弧是整個從.text "()裡面要全包" 包到整個運算判斷式完 但三元運算只有包到判斷式那邊
+            // 這次因為jq括弧位置包錯 造成點選變更sh寫不進資料庫
             // switch($(this).text()){
             //     case "隱藏": //目前在隱藏狀態下,接下來的動作是
             //         $(this).text("顯示"); //接下來的動作就是點擊btn後把隱藏變成顯示
