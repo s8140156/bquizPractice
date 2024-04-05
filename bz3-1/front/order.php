@@ -18,6 +18,11 @@
     </div>
 </div>
 <script>
+    let url=new URL(window.location.href)
+    //使用js內建取得url的query string(從f12 network->payload)的方法
+    // console.log(url.searchParams.get('id')) //透過js內建url解析 可以拿到網址內的id參數 如果是經由“線上訂票連結” 會得到id是null
+    // console.log(url.searchParams.has('id')) // 使用has會得到true/false
+    // 以上是透過純前端方式拿到id資料 不是使用ajax方式喔~~
     getMovies();
 
     $('#movie').on('change',function(){ //此function是用在當選取片單後 日期也需要重新讀取載入(依選的片單的時間)
@@ -32,6 +37,10 @@
     function getMovies(){
         $.get('./api/get_movies.php',(movies)=>{
             $('#movie').html(movies);
+            if(url.searchParams.has('id')){ //會是當畫面拿到movie list就執行取得網址內的id字串解析
+                $(`#movie option[value='${url.searchParams.get('id')}']`).prop('selected',true)
+                // 透過js內建 取得option裡面的value的id(之前後端帶給他的) 並使用prop()將該id(因為是該id所以true) selected
+            }
             let id=$('#movie').val() //取option裡面的value值(前端方式)(原本是後端寫value帶id去前端)
             getDates(id);
         })
