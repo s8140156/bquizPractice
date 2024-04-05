@@ -34,6 +34,7 @@
     <div id="info">
         <button onclick="$('#select').show();$('#booking').hide()">上一步</button>
         <!--使用前端方式讓畫面其實都在同一頁(不用換頁也不需去資料庫拿資料) 可以符合題意保留點選後的選單的選項-->
+        <!-- 在上一步/確定兩個button切換 -->
         <button conlick="">訂購</button>
     </div>
 </div>
