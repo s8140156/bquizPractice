@@ -14,29 +14,15 @@
             <select name="session" id="session"></select>
         </div>
         <div>
-            <button onclick="$('#select').hide();$('#booking').show()">確定</button>
+            <!-- <button onclick="$('#select').hide();$('#booking').show()">確定</button> -->
+            <button onclick="booking()">確定</button>
             <button>重置</button>
         </div>
     </div>
 </div>
-<style>
-    #room{
-        background-image: url('./icon/03D04.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 540px;
-        height: 370px;
-        margin: auto;
-    }
-</style>
+
 <div id="booking" style="display:none">
-    <div id="room"></div>
-    <div id="info">
-        <button onclick="$('#select').show();$('#booking').hide()">上一步</button>
-        <!--使用前端方式讓畫面其實都在同一頁(不用換頁也不需去資料庫拿資料) 可以符合題意保留點選後的選單的選項-->
-        <!-- 在上一步/確定兩個button切換 -->
-        <button conlick="">訂購</button>
-    </div>
+
 </div>
 <script>
     let url=new URL(window.location.href)
@@ -79,6 +65,16 @@
     function getSessions(movie,date){
         $.get('./api/get_sessions.php',{movie,date},(sessions)=>{
             $('#session').html(sessions);
+        })
+    }
+    function booking(){
+        let order={movie_id:$('#movie').val(),
+                   date:$('#date').val(),
+                   session:$('#session').val()}
+        $.get('./api/booking.php',order,(booking)=>{ //程序是要先向後端要資料後
+            $('#booking').html(booking) //在#booking畫上取得的資料後
+            $('#select').hide() //才執行後面畫面的hide/show切換
+            $('#booking').show()
         })
     }
 
