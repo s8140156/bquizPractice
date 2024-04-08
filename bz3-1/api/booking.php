@@ -24,10 +24,16 @@ $session=$_GET['session'];
         width: 63px;
         height: 85px;
         /*background: rgba(200,200,100,0.5);*/ /*確認.seat範圍使用 測試*/
+        position: relative; /*用於checkbox相對定位使用*/
     }
     .seats{
         display: flex;
         flex-wrap: wrap;
+    }
+    .chk{
+        position: absolute;
+        right: 1px;
+        bottom: 1px;
     }
 </style>
 <!-- 因為使用ajax方式先向後端取得相關場次訂票數等資訊後->才會進行前端資料取得打出＋畫面顯示-->
@@ -39,9 +45,13 @@ $session=$_GET['session'];
         for($i=0;$i<20;$i++){
             echo "<div class='seat'>";
             echo "<div class='ct'>";
-            echo (floor($i/5)+1) . "排";
-            echo (($i%5)+1) . "號";
+            echo (floor($i/5)+1) . "排"; //使用除法無條件捨去後+1
+            echo (($i%5)+1) . "號"; //使用餘數+1
             echo "</div>";
+            echo "<div class='ct'>";
+            echo "<img src='./icon/03D02.png'>";
+            echo "</div>";
+            echo "<input type='checkbox' name='chk' value='$i' class='chk'>";
             echo "</div>";
         }
         ?>
