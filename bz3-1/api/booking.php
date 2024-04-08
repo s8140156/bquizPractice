@@ -16,12 +16,37 @@ $session=$_GET['session'];
         width: 540px;
         height: 370px;
         margin: auto;
+        box-sizing: border-box; /*設定border-box不被padding影響大小*/
+        padding: 19px 112px 0 112px; /*使用padding排除不要區域 只畫在排除後的區域*/
+        /*確認圖片stage高度大概19px排除此部分/及左右空白排除*/
+    }
+    .seat{
+        width: 63px;
+        height: 85px;
+        /*background: rgba(200,200,100,0.5);*/ /*確認.seat範圍使用 測試*/
+    }
+    .seats{
+        display: flex;
+        flex-wrap: wrap;
     }
 </style>
 <!-- 因為使用ajax方式先向後端取得相關場次訂票數等資訊後->才會進行前端資料取得打出＋畫面顯示-->
 <!-- 所以將此部分(整個訂票選位頁面)html,css在後端進行 -->
 
-<div id="room"></div>
+<div id="room">
+    <div class="seats">
+        <?php
+        for($i=0;$i<20;$i++){
+            echo "<div class='seat'>";
+            echo "<div class='ct'>";
+            echo (floor($i/5)+1) . "排";
+            echo (($i%5)+1) . "號";
+            echo "</div>";
+            echo "</div>";
+        }
+        ?>
+    </div>
+</div>
     <div id="info">
         <div>您選擇的電影是：<?=$movie['name'];?></div>
         <div>您選擇的時刻是：<?=$date;?> <?=$session;?></div>
