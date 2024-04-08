@@ -68,3 +68,25 @@ $session=$_GET['session'];
             <button conlick="">訂購</button>
         </div>
     </div>
+    <script>
+        let seats=new Array(); //宣告一個變數空陣列來存放點選後的資料,這樣寫直接是個物件 帶有方法(?)
+        $('.chk').on('change',function(){
+            if($(this).prop('checked')){
+                if(seats.length+1<=4){
+                    seats.push($(this).val()) //若確認property是checked的 就勾選起來
+                }else{
+                    $(this).prop('checked',false) //prop()函式不只可設一個參數 因為先判斷在有checked狀態下 所以如果不是 要改變checked狀態
+                    alert('每個人只能勾選四張票')
+                }
+            }else{
+                // console.log(seats.indexOf($(this).val())) //在測試看刪除哪個索引位置
+                seats.splice(seats.indexOf($(this).val()),1)
+                //陣列.splice(索引,要刪多少個,要取代的值(有才放))
+                //陣列.indexOf(這邊就是放點選的那個值的那個位置)
+            }
+            // console.log($(this).prop('checked'),seats)
+            console.log(seats.length)
+            $('#tickets').text(seats.length)
+        })
+
+    </script>
