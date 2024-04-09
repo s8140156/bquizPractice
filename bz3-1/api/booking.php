@@ -65,11 +65,11 @@ $session=$_GET['session'];
             <button onclick="$('#select').show();$('#booking').hide()">上一步</button>
             <!--使用前端方式讓畫面其實都在同一頁(不用換頁也不需去資料庫拿資料) 可以符合題意保留點選後的選單的選項-->
             <!-- 在上一步/確定兩個button切換 -->
-            <button conlick="">訂購</button>
+            <button onclick="checkout()">訂購</button>
         </div>
     </div>
     <script>
-        let seats=new Array(); //宣告一個變數空陣列來存放點選後的資料,這樣寫直接是個物件 帶有方法(?)
+        let seats=new Array(); //宣告一個變數空陣列(全域陣列)來存放點選後的資料,這樣寫直接是個物件 帶有方法(?)
         $('.chk').on('change',function(){
             if($(this).prop('checked')){
                 if(seats.length+1<=4){
@@ -85,8 +85,20 @@ $session=$_GET['session'];
                 //陣列.indexOf(這邊就是放點選的那個值的那個位置)
             }
             // console.log($(this).prop('checked'),seats)
-            console.log(seats.length)
+            // console.log(seats.length)
             $('#tickets').text(seats.length)
         })
+        function checkout(){
+            $.post('./api/checkout.php',{movie:'<?=$movie['name'];?>',
+                                         date:'<?=$date;?>',
+                                         session:'<?=$session;?>',
+                                         qt:seats.length,
+                                         seats},(no)=>{
+                // 這邊php給出的資料需要加上' '讓裡面的值變成字串 不然js會判別為變數而傳不進後端
+                location.href=`?do=result&no=${no}`;
+
+            })
+        }
+
 
     </script>
