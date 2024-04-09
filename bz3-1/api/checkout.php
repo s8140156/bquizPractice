@@ -7,6 +7,7 @@ sort($_POST['seats']);
 // call by reference 無論在程式的任何地方使用到該變數，會將該變數在記憶體中的 address 傳給程式使用，所以使用變數的地方都會指向同一塊記憶體。
 // 一旦更動變數時，使用該變數的地方的值都會跟著改變 sort()函式屬於有"&"$array
 $_POST['seats']=serialize($_POST['seats']);
+// $_POST['qt']=count($_POST['seats']); //也可以用這個方式算數張數 題組三是在前端使用seats.length去計算後整組傳至後端
 $id=$Order->max('id')+1; //目前尚未有id產生,可以以這個方式取得並存入id(找出資料表裡最大的id+1)
 $_POST['no']=date("Ymd").sprintf("%04d",$id);
 $Order->save($_POST);
