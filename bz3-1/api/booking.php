@@ -7,6 +7,21 @@ $movie=$Movie->find($_GET['movie_id']);
 $date=$_GET['date'];
 $session=$_GET['session'];
 
+//以下是進行確認該電影該日期該場次在資料表已選位狀況
+//先從資料表裡找出對應的資訊
+$ords=$Order->all(['movie'=>$movie['name'],
+                   'date'=>$date,
+                   'session'=>$session]);
+$seats=[]; //先宣告空陣列
+foreach($ords as $ord){
+    $tmp=unserialize($ord['seats']); //先將每一筆'seats' unserialize
+    $seats=array_merge($seats,$tmp); 
+    //array_merge是將多筆陣列合併為一個陣列,只要在這個陣列裡確認即可(1次)就不用再寫巢狀迴圈(原迴圈次數*確認每訂單座位)增加確認降低效能
+    //測試過 雖然裡面參數可以顛倒放,$tmp,$seats=>順序會是"最後一次購買"的順序最先(index0)
+    // $seats,$tmp=>順序為"第一次購買"的順序最先(index0)
+}
+// dd($seats);
+
 ?>
 <style>
     #room{
@@ -49,9 +64,15 @@ $session=$_GET['session'];
             echo (($i%5)+1) . "號"; //使用餘數+1
             echo "</div>";
             echo "<div class='ct'>";
-            echo "<img src='./icon/03D02.png'>";
+            if(in_array($i,$seats)){ //如果$i在$seats裡(表示已經選位了)
+                echo "<img src='./icon/03D03.png'>";
+            }else{
+                echo "<img src='./icon/03D02.png'>";
+            }
             echo "</div>";
-            echo "<input type='checkbox' name='chk' value='$i' class='chk'>";
+            if(!in_array($i,$seats)){
+                echo "<input type='checkbox' name='chk' value='$i' class='chk'>";
+            }
             echo "</div>";
         }
         ?>
