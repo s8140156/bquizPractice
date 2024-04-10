@@ -1,9 +1,9 @@
 <h3 class="ct">訂單清單</h3>
 <div class="qdel">
     快速刪除：
-    <input type="radio" name="type" value="1" checked>依日期 <!--寫在裡面checked真的就是邱森萬-->
+    <input type="radio" name="type" value="date" checked>依日期 <!--寫在裡面checked真的就是邱森萬-->
     <input type="text" name="date" id="date">
-    <input type="radio" name="type" value="2">依電影
+    <input type="radio" name="type" value="movie">依電影
     <select name="movie" id="movie">
     <?php
     $movies=$Order->q("select `movie` from `orders` Group by `movie`");
@@ -14,7 +14,7 @@
     }
     ?>
     </select> <!--所有order資料表裡面訂單的電影清單-->
-    <button>刪除</button>
+    <button onclick="qdel()">刪除</button>
 
 </div>
 <style>
@@ -77,5 +77,16 @@
         $.post('./api/del.php',{table:'orders',id},()=>{
             location.reload()
         })
+    }
+    function qdel(){
+        let type=$("input[name='type']:checked").val()
+        //css選擇器可以by狀態確認內容 從input name為type並且是checked狀態 去取value內容為何(是date還是movie)
+        let val=$("#"+type).val() //透過type變數 又可以讓input配合的id取值(所以命名重要)
+        let chk=confirm(`你確定要刪除${type}為${val}的所有資料嗎？`)
+        if(chk){
+            $.post('./api/qdel.php',{type,val},()=>{
+                location.reload()
+            })
+        }
     }
 </script>
