@@ -8,6 +8,9 @@ $_POST['acc']=$_SESSION['mem'];
 
 $Orders->save($_POST);
 
+unset($_SESSION['cart']); //這個動作會在結帳後清空session
+
+
 ?>
 <script>
 	alert('訂購成功，\n感謝您的選購');
