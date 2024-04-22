@@ -1,3 +1,8 @@
+<style>
+    td>img,input,button{
+        vertical-align: bottom;
+    }
+</style>
 <h2>第一次購物</h2>
 <img src="./icon/0413.jpg" onclick="location.href='?do=reg'">
 <h2>會員登入</h2>
@@ -13,18 +18,20 @@
     <tr>
         <td class="tt ct">驗證碼</td>
         <td class="pp">
-            <?php
-            $a=rand(10,99);
-            $b=rand(10,99);
-            $_SESSION['ans']=$a+$b;
-            echo "{$a}+{$b}=";
-            ?>
             <input type="text" name="ans" id="ans">
+            <img src="" id="captcha"><button onclick="captcha()">重新產生</button>
         </td>
     </tr>
 </table>
 <div class="ct"><button onclick="login('mem')">確認</button></div>
 <script>
+    captcha();
+    function captcha(){
+        $.get('./api/captcha.php',(img)=>{
+            console.log(img)
+            $('#captcha').attr("src",img)
+        })
+    }
     function login(table){
         $.get('./api/chk_ans.php',{ans:$('#ans').val()},(res)=>{
             if(parseInt(res)==0){
