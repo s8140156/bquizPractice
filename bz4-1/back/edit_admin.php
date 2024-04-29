@@ -19,9 +19,10 @@ $row['pr']=unserialize($row['pr']);
             <td class="pp">
                 <input type="checkbox" name="pr[]" value="1" <?=(in_array(1,$row['pr']))?'checked':'';?>>商品分類與管理<br>
                 <input type="checkbox" name="pr[]" value="2" <?=(in_array(2,$row['pr']))?'checked':'';?>>訂單管理<br>
-                <input type="checkbox" name="pr[]" value="3" <?=(in_array(3,$row['pr']))?'checked':'';?>>會員管理<br>
-                <input type="checkbox" name="pr[]" value="4" <?=(in_array(4,$row['pr']))?'checked':'';?>>頁尾版權區管理<br>
-                <input type="checkbox" name="pr[]" value="5" <?=(in_array(5,$row['pr']))?'checked':'';?>>最新消息管理<br>
+                <input type="checkbox" name="pr[]" value="3" <?=(in_array(2,$row['pr']))?'checked':'';?>>訂單報表<br>
+                <input type="checkbox" name="pr[]" value="4" <?=(in_array(3,$row['pr']))?'checked':'';?>>會員管理<br>
+                <input type="checkbox" name="pr[]" value="5" <?=(in_array(4,$row['pr']))?'checked':'';?>>頁尾版權區管理<br>
+                <input type="checkbox" name="pr[]" value="6" <?=(in_array(5,$row['pr']))?'checked':'';?>>最新消息管理<br>
         </td>
         </tr>
     </table>

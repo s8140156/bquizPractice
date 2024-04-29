@@ -31,9 +31,11 @@ $pr=unserialize($admin['pr']);
 				<?php
 				echo in_array(1,$pr)?"<a href='?do=th'>商品分類與管理</a>":"";
 				echo in_array(2,$pr)?"<a href='?do=order'>訂單管理</a>":"";
-				echo in_array(3,$pr)?"<a href='?do=mem'>會員管理</a>":"";
-				echo in_array(4,$pr)?"<a href='?do=bot'>頁尾版權管理</a>":"";
-				echo in_array(5,$pr)?"<a href='?do=news'>最新消息管理</a>":"";
+				echo in_array(3,$pr)?"<a href='?do=order_export'>訂單報表</a>":"";
+				echo in_array(4,$pr)?"<a href='?do=mem'>會員管理</a>":"";
+				echo in_array(5,$pr)?"<a href='?do=bot'>頁尾版權管理</a>":"";
+				echo in_array(6,$pr)?"<a href='?do=news'>最新消息管理</a>":"";
+
 				?>
 				<a href="./api/logout.php" style="color:#f00;">登出</a> <!--做這幾次練習 印象沒有logout頁面都是直接導api/logout解除後轉首頁-->
 			</div>

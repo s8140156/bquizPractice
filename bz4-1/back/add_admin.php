@@ -14,9 +14,10 @@
             <td class="pp">
                 <input type="checkbox" name="pr[]" value="1">商品分類與管理<br>
                 <input type="checkbox" name="pr[]" value="2">訂單管理<br>
-                <input type="checkbox" name="pr[]" value="3">會員管理<br>
-                <input type="checkbox" name="pr[]" value="4">頁尾版權區管理<br>
-                <input type="checkbox" name="pr[]" value="5">最新消息管理<br>
+                <input type="checkbox" name="pr[]" value="3">訂單報表<br>
+                <input type="checkbox" name="pr[]" value="4">會員管理<br>
+                <input type="checkbox" name="pr[]" value="5">頁尾版權區管理<br>
+                <input type="checkbox" name="pr[]" value="6">最新消息管理<br>
         </td>
         </tr>
     </table>
