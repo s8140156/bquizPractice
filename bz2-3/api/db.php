@@ -66,15 +66,15 @@ class DB{
         return $this->pdo->exec($sql);
     }
     function del($id){
-        $sql="delete from `$this->table` where ";
+        $sql="delete from `$this->table` ";
         if(is_array($id)){
             $tmp=$this->a2s($id);
-            $sql .=join(" && ",$tmp);
+            $sql .=" where " .join(" && ",$tmp);
         }else if(is_numeric($id)){
-                $sql .="`id`='$id'";
+                $sql .=" where `id`='$id'";
         }
         return $this->pdo->exec($sql);
-        echo $sql;
+        // echo $sql;
     }
     function q($sql){
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
